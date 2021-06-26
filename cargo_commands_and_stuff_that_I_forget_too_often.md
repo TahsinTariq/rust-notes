@@ -1,8 +1,10 @@
 cargo installs:
- - cargo-modules
  - ttyper
+ - zellij
+ - cargo-modules
  - evcxr_jupyter
+ - hexyl
 
 commands:
- - cargo modules generate tree
  - cargo install --list
+ - cargo modules generate tree

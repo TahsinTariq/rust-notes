@@ -1,4 +1,3 @@
-
 // for small values
 // fn main() {
 //     let n : u128 = 34;
@@ -12,15 +11,19 @@
 //     return n*factorial(n-1);
 // }
 
-
-
 // for large values
-use num::{BigUint, One};
+// use num::{BigUint, One};
 
-fn factorial(n: usize) -> BigUint {
-    (1..=n).fold(BigUint::one(), |a, b| a * b)
-}
+// fn factorial(n: usize) -> BigUint {
+//     (1..=n).fold(BigUint::one(), |a, b| a * b)
+// }
+
+// fn main() {
+//     println!("{}", factorial(100));
+// }
 
 fn main() {
-    println!("{}", factorial(100));
+    let x = 3.1415;
+    let r = 8.0;
+    println!("the area of the circle is {}", x * r * r);
 }
