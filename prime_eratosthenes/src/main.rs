@@ -3,9 +3,9 @@ use std::time::Instant;
 fn main() {
     let now = Instant::now();
     // println!("{:?}", now.);
-    // let n = 10_000_000;
+    let n = 100_000_000;
     // let n = 15_485_864;
-    let n = 990_000_000;
+    // let n = 990_000_000;
     // for i in (50..n).step_by(5){
     //     println!("{}", i);
     // }

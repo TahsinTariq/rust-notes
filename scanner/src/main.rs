@@ -1,5 +1,6 @@
 // use scanners::Scanner;
 use std::io::stdin;
+#[allow(unused_imports)]
 use std::process;
 // use std::io::{stdout, BufWriter, Write};
 
@@ -23,23 +24,95 @@ impl Scanner {
 fn main() {
     // bit_plus();
     // maximus();
-    replace_string();
+    // replace_string();
+    // petya_and_str()
+    // b_matrix();
+    // helpful_mafz();
+    word_capitalization2();
+}
+#[allow(dead_code)]
+fn word_capitalization() {
+    let mut scan = Scanner::default();
+    let s = scan.next::<String>();
+    // let mut s = "something".to_string();
+    let p: String = s
+        .chars()
+        .enumerate()
+        .map(|(i, c)| {
+            if i == 0 {
+                c.to_uppercase().next().unwrap()
+            } else {
+                c
+            }
+        })
+        .collect();
+    println!("{}", p);
+}
+
+#[allow(dead_code)]
+fn word_capitalization2() {
+    let mut scan = Scanner::default();
+    let mut s = scan.next::<String>();
+    // let mut s = "something".to_string();
+    let c = s.to_uppercase().chars().next().unwrap();
+    // let c = s.to_uppercase().chars().nth(0).unwrap();
+    s.replace_range(0..1, &c.to_string());
+    println!("{}", s);
+}
+
+#[allow(dead_code)]
+fn helpful_mafz() {
+    let mut scan = Scanner::default();
+    let s = scan.next::<String>();
+    let mut p: Vec<&str> = s.split("+").collect();
+    p.sort_unstable();
+    // let mut pp: Vec<i32> = p.iter().map(|x| x.trim().parse::<i32>().unwrap()).collect();
+    println!("{}", p.join("+"));
+}
+
+#[allow(dead_code)]
+fn b_matrix() {
+    let mut scan = Scanner::default();
+    for i in 0..5 {
+        let s: Vec<i32> = (0..5).map(|_| scan.next()).collect();
+        for (j, n) in s.iter().enumerate() {
+            if n == &1 {
+                // println!("{}", ((i - 2) as i32).abs() + ((j - 2) as i32).abs());
+                println!("{}", (j as i32 - 2).abs() + (i as i32 - 2).abs());
+            }
+        }
+    }
+}
+
+#[allow(dead_code)]
+fn petya_and_str() {
+    let mut scan = Scanner::default();
+    let s = scan.next::<String>().to_lowercase();
+    let s1 = scan.next::<String>().to_lowercase();
+    use std::cmp::Ordering;
+    println!(
+        "{}",
+        match s.cmp(&s1) {
+            Ordering::Less => -1,
+            Ordering::Equal => 0,
+            Ordering::Greater => 1,
+        }
+    );
 }
 
 #[allow(dead_code)]
 fn replace_string() {
-    // let mut scan = Scanner::default();
-    // let n = scan.next::<i64>();
-    // // let k = scan.next::<i64>();
-    // let a: Vec<i64> = (0..n).map(|_| scan.next()).collect();
-    let mut s = String::from("some stirng");
-    // println!("{}", s.replace("s" | "o", to: &str));
-    let VOWELS: Vec<char> = vec!['a', 'e', 'i', 'o', 'u'];
-    for i in s[0..5] {
-        if VOWELS.contains(i) {
-            i = ".";
-        }
-    }
+    let mut scan = Scanner::default();
+    let s = scan.next::<String>();
+    let VOWELS: Vec<char> = vec!['a', 'e', 'i', 'o', 'u', 'y'];
+    let st: String = s
+        .to_lowercase()
+        .chars()
+        .filter(move |item| !VOWELS.contains(item))
+        .map(|item| format!(".{}", item))
+        .collect::<Vec<String>>()
+        .join("");
+    println!("{}", st);
 }
 
 #[allow(dead_code)]

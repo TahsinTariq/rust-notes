@@ -4,6 +4,7 @@ cargo installs:
  - cargo-modules
  - evcxr_jupyter
  - hexyl
+ - cargo-edit
 
 commands:
  - cargo install --list
